@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/iculd_beijin_icon">
+
+    <ListView
+        android:id="@+id/reputation_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#20ffffff"
+        android:dividerHeight="1px"
+        android:listSelector="@android:color/transparent">
+
+    </ListView>
+    <TextView
+        android:id="@+id/reputation_tipe_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/reputation_list"
+        android:text="暂无评论！！"
+        android:textColor="#DEDDE2"
+        android:gravity="center"
+        android:background="#20ffffff"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_h"
+        android:background="#30000000">
+
+        <TextView
+            android:id="@+id/title_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="信誉值"
+            android:textColor="#DEDDE2"
+            android:textSize="@dimen/title_text_h"
+            android:padding="10dp"
+            android:layout_centerInParent="true"/>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="投递"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="#00DEDDE2"
+            android:onClick="send"
+            android:background="#00ffffff"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="ㄑ"
+            android:textSize="@dimen/title_text_h"
+            android:layout_marginLeft="0dp"
+            android:textColor="#DEDDE2"
+            android:onClick="back"
+            android:background="#00ffffff"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

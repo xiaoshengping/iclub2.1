@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.iclub21.fragment.ResumeFragment">
+    <include
+        android:id="@+id/resume_layout"
+        layout="@layout/resume_tailt_layout"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/resume_list_lv"
+        android:scrollbars="none"
+        android:dividerHeight="3dp"
+        ptr:ptrHeaderTextColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

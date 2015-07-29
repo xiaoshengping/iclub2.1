@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/add_resume_tv"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="@dimen/textSize16"
+        android:text="添加新简历"
+        android:gravity="center"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/textColor9a4274"
+        android:layout_width="270dp"
+        android:layout_height="35dp" />
+
+</LinearLayout>

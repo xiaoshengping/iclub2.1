@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/iculd_beijin_icon"
+    tools:context="com.example.administrator.iclub21.util.InformationActivity">
+    <include layout="@layout/information_tailt_layout"/>
+  <ListView
+
+      android:dividerHeight="3dp"
+      android:id="@+id/information_lv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
