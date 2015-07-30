@@ -167,7 +167,7 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
+        <!--<activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true" >
@@ -179,7 +179,7 @@
 
                 <data android:scheme="tencent222222" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity android:name="com.example.administrator.iclub21.calendar.CalendarActivity" />
         <activity android:name="com.example.administrator.iclub21.util.ReputationActivity" />
         <activity
