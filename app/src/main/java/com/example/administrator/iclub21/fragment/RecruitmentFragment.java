@@ -79,8 +79,8 @@ public class RecruitmentFragment extends Fragment {
     private Button selected_position;
     @ViewInject(R.id.reagment_title_tv)
     private TextView reagment_title_tv;
-    @ViewInject(R.id.back_b)
-    private Button back_b;
+    @ViewInject(R.id.back_ib)
+    private ImageButton back_ib;
     @ViewInject(R.id.progressbar)
     private RelativeLayout progressbar;
 
@@ -116,7 +116,7 @@ public class RecruitmentFragment extends Fragment {
 
         initRecruitmentImageData();
 
-        back_b.setVisibility(View.GONE);
+        back_ib.setVisibility(View.GONE);
 
         //搜索
         reagment_title_search_ib.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +126,7 @@ public class RecruitmentFragment extends Fragment {
                 dialog();
             }
         });
-        back_b.setOnClickListener(new View.OnClickListener() {
+        back_ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 searchStatusfalse = false;
@@ -137,7 +137,7 @@ public class RecruitmentFragment extends Fragment {
                 selected_position.setText("选择职位");
                 reagment_title_tv.setText("娱乐招聘");
                 initRecruitmentListData(0,0);
-                back_b.setVisibility(View.GONE);
+                back_ib.setVisibility(View.GONE);
 //                initRecruitmentListData(0,0,"");
             }
         });
@@ -217,9 +217,9 @@ public class RecruitmentFragment extends Fragment {
             public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
                 if (arg1 == EditorInfo.IME_ACTION_UNSPECIFIED) {
 
-                    back_b.setVisibility(View.VISIBLE);
+                    back_ib.setVisibility(View.VISIBLE);
                     sousuo = srarchBoxDialog.getEt().getText().toString();
-                    reagment_title_tv.setText("搜索结果：(" + sousuo + ")");
+                    reagment_title_tv.setText(sousuo);
 //                initRecruitmentListData(citynum, jobnum, sousuo);
                     citynum = 0;
                     jobnum = 0;

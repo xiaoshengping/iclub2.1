@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -58,8 +57,8 @@ public class ArtistFragment extends Fragment {
     private TextView artist_tupe_tv;
     @ViewInject(R.id.artist_title_search_ib)
     private ImageButton artist_title_search_ib;
-    @ViewInject(R.id.back_b)
-    private Button back_b;
+    @ViewInject(R.id.back_ib)
+    private ImageButton back_ib;
     @ViewInject(R.id.fascrollView)
     private ScrollView fascrollView;
 
@@ -182,11 +181,11 @@ public class ArtistFragment extends Fragment {
             }
         });
 
-        back_b.setOnClickListener(new View.OnClickListener() {
+        back_ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 initListData("","","");
-                back_b.setVisibility(View.INVISIBLE);
+                back_ib.setVisibility(View.INVISIBLE);
                 artist_area_tv.setText("区域");
                 artist_sex_tv.setText("性别");
                 artist_tupe_tv.setText("类型");
@@ -273,7 +272,7 @@ public class ArtistFragment extends Fragment {
             artist_tupe_tv.setText(bundle.getString("TupeName"));
         }
         initListData(area.toString(),sex.toString(),tupe.toString());
-        back_b.setVisibility(View.VISIBLE);
+        back_ib.setVisibility(View.VISIBLE);
 
 
 

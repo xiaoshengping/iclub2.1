@@ -117,16 +117,14 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:scaleType="center"/>
-        <Button
-            android:id="@+id/back_b"
+        <ImageButton
+            android:id="@+id/back_ib"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:text="ㄑ"
-            android:textSize="@dimen/title_text_h"
             android:layout_marginLeft="0dp"
-            android:textColor="#DEDDE2"
+            android:src="@mipmap/return_icon"
             android:background="#00ffffff"
             android:visibility="gone"/>
     </RelativeLayout>

@@ -2,12 +2,16 @@ package com.example.administrator.iclub21.util;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -48,9 +52,13 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
     private TextView helpline_tv;
     private TextView emsil_tv;
     private ScrollView scrollView;
+    private TextView contact_information_tips_tv;
+    private RelativeLayout artist_contactinformation_rl;
 //    private SelectedCityOrPositionAdapter adAdater;
 
     ArtistListBean artistParme;
+    private boolean register = false;//登录状态
+    private String states = null;//用户类型
 
     private int MUSIC = 1;
     private int VIDEO = 2;
@@ -79,6 +87,8 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
         helpline_tv = (TextView) findViewById(R.id.helpline_tv);
         emsil_tv = (TextView) findViewById(R.id.emsil_tv);
         scrollView = (ScrollView)findViewById(R.id.scrollView);
+        contact_information_tips_tv = (TextView)findViewById(R.id.contact_information_tips_tv);
+        artist_contactinformation_rl = (RelativeLayout)findViewById(R.id.artist_contactinformation_rl);
 
         music_tv.setOnClickListener(this);
         video_tv.setOnClickListener(this);
@@ -86,6 +96,24 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
     }
 
     private void init(){
+
+        //获取登录状态
+        SQLhelper sqLhelper=new SQLhelper(this);
+        SQLiteDatabase db= sqLhelper.getWritableDatabase();
+        Cursor cursor=db.query("user", null, null, null, null, null, null);
+        states=null;
+        while (cursor.moveToNext()) {
+            states = cursor.getString(4);
+
+        }
+        if (TextUtils.isEmpty(states)||states.equals("1")){
+            register = false;
+        }else if(states.equals("2")){
+            register = true;
+        }else if(states.equals("3")){
+            register = true;
+        }
+
         binding();
         BitmapUtils bitmapUtils=new BitmapUtils(this);
         artistParme = (ArtistListBean) getIntent().getParcelableExtra("Detail");
@@ -103,6 +131,13 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
         }
         if(artistParme.getShows().equals("")){}else {
             appear_tv.setText(artistParme.getShows());
+        }
+        if(register) {
+            artist_contactinformation_rl.setVisibility(View.VISIBLE);
+            contact_information_tips_tv.setVisibility(View.GONE);
+        }else {
+            artist_contactinformation_rl.setVisibility(View.GONE);
+            contact_information_tips_tv.setVisibility(View.VISIBLE);
         }
         company_tv.setText(artistParme.getPerson().getBEcompanyName());
         qq_tv.setText(artistParme.getPerson().getBEqq());
