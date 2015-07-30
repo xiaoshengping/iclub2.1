@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
@@ -374,6 +375,10 @@ public class RecruitmentFragment extends Fragment {
             recruitmentList.setAdapter(recruitmentAdapter);
             recruitmentAdapter.notifyDataSetChanged();
 
+            if(recruitmentListData.size()==0){
+                Toast.makeText(getActivity(), "暂时还没有相关数据", Toast.LENGTH_LONG).show();
+            }
+
             recruitmentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -384,6 +389,8 @@ public class RecruitmentFragment extends Fragment {
                 intent.putExtras(bundle);
 //                intent.putExtra("Status", areaBean.PROVINCE);
                 startActivity(intent);
+
+
             }
             });
         }

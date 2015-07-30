@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -61,6 +62,10 @@ public class ArtistFragment extends Fragment {
     private ImageButton back_ib;
     @ViewInject(R.id.fascrollView)
     private ScrollView fascrollView;
+    @ViewInject(R.id.progressbar)
+    private ProgressBar progressbar;
+    @ViewInject(R.id.londing_tip)
+    private TextView londing_tip;
 
     List<ArtistHeadBean> headDate=new ArrayList<ArtistHeadBean>();
 
@@ -87,11 +92,18 @@ public class ArtistFragment extends Fragment {
     }
 
     private void inti() {
+        fascrollView.setVisibility(View.GONE);
+        progressbar.setVisibility(View.VISIBLE);
         httpUtils=new HttpUtils();
         initPager();
-        intiHeadData();
-        initListData("", "", "");
 
+        initListData("", "", "");
+        londing_tip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inti();
+            }
+        });
 
     }
 
@@ -127,6 +139,8 @@ public class ArtistFragment extends Fragment {
                             }
                         });
 
+                        intiHeadData();
+
                     }
                 }
 
@@ -134,7 +148,10 @@ public class ArtistFragment extends Fragment {
 
             @Override
             public void onFailure(HttpException e, String s) {
+
                 Log.e("onFailure", s);
+                progressbar.setVisibility(View.GONE);
+                londing_tip.setVisibility(View.VISIBLE);
             }
         });
 
@@ -232,6 +249,8 @@ public class ArtistFragment extends Fragment {
                        // headDate.addAll(headBean.getValue());
 //                        ArtistPagerAdapter adapter=new ArtistPagerAdapter(getActivity().getSupportFragmentManager(),headBean.getValue());
 //                        artistPager.setAdapter(adapter);
+                        fascrollView.setVisibility(View.VISIBLE);
+                        progressbar.setVisibility(View.GONE);
 
                     }
 
@@ -242,7 +261,8 @@ public class ArtistFragment extends Fragment {
 
             @Override
             public void onFailure(HttpException e, String s) {
-
+                progressbar.setVisibility(View.GONE);
+                londing_tip.setVisibility(View.VISIBLE);
             }
         });
 
