@@ -230,7 +230,8 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
                 initArtistList(VIDEO);
                 break;
             case R.id.helpline_tv:
-                Intent intent=new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + artistParme.getPerson().getBEphone()));
+                Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + artistParme.getPerson().getBEphone()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;
             default:
