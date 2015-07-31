@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -54,6 +55,7 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
     private ScrollView scrollView;
     private TextView contact_information_tips_tv;
     private RelativeLayout artist_contactinformation_rl;
+    private ImageView sex_iv;
 //    private SelectedCityOrPositionAdapter adAdater;
 
     ArtistListBean artistParme;
@@ -89,6 +91,7 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
         scrollView = (ScrollView)findViewById(R.id.scrollView);
         contact_information_tips_tv = (TextView)findViewById(R.id.contact_information_tips_tv);
         artist_contactinformation_rl = (RelativeLayout)findViewById(R.id.artist_contactinformation_rl);
+        sex_iv = (ImageView)findViewById(R.id.sex_iv);
 
         music_tv.setOnClickListener(this);
         video_tv.setOnClickListener(this);
@@ -124,6 +127,11 @@ public class ArtistDetailActivity extends Activity implements View.OnClickListen
 //        types_of_profession_tv.setText(artistParme.get);
 //        district_tv.setText(artistParme.get);
         name_tv.setText(artistParme.getName());
+        if(artistParme.getSex()==0){
+            sex_iv.setImageResource(R.mipmap.man_icon);
+        }else {
+            sex_iv.setImageResource(R.mipmap.girl_icon);
+        }
         page_view_tv.setText(artistParme.getViewCount()+"");
         essential_information_tv.setText(artistParme.getInfo());
         if(artistParme.getEndorse().equals("")){}else {

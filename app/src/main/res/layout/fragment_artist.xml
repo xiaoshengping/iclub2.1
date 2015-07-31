@@ -91,6 +91,22 @@
             </LinearLayout>
 
         </ScrollView>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/londing_tip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textSize="15sp"
+            android:textColor="#A53FFE"
+            android:text="加载失败，请检查网络后。\n点击刷新界面"/>
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/reagment_title_rl"
